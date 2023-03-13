@@ -7,3 +7,4 @@ Call with command:
 ```
 ./split_by_silence
 ```
+Status: https://stackoverflow.com/questions/75718578/ffmpeg-split-by-silence-with-logic-to-achieve-12-split-segments
