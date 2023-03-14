@@ -1,3 +1,6 @@
+Flac file download:
+https://www.filemail.com/d/afntznnksjgpjrr
+
 Goal:
 Generate 11 split points, render 12 audio files using the included mp3.
 

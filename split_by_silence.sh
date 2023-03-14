@@ -7,21 +7,16 @@
 # $ ./split_by_silence.sh "full_lowq.flac" %03d_output.flac
 
 # output title format
-OUTPUTTITLE="%d_output.mp3"
+OUTPUTTITLE="%d_output.flac"
 # input audio filepath
-IN="/mnt/c/Users/marti/Documents/projects/split_by_silence/lowquality_example.mp3"
+IN="/mnt/c/Users/marti/Documents/projects/split_by_silence2/full.flac"
 # output audio filepath
-OUTPUTFILEPATH="/mnt/c/Users/marti/Documents/projects/split_by_silence"
+OUTPUTFILEPATH="/mnt/c/Users/marti/Documents/projects/split_by_silence2/flac_output/"
 # ffmpeg option: split input audio based on this silencedetect value
 SD_PARAMS="-11dB"
 # split option: minimum fragment duration
 MIN_FRAGMENT_DURATION=120
 export MIN_FRAGMENT_DURATION
-
-#  close (12 tracks)
-#  -11db
-#  120
-
 
 # -----------------------
 # step: ffmpeg
@@ -45,6 +40,15 @@ SPLITS=$(
     | sed 's!,$!!'
 )
 echo "split points list= $SPLITS"
+
+# add '5.5' to each split\
+IFS=',' read -ra SPLITS_ARRAY <<< "$SPLITS"
+for i in "${!SPLITS_ARRAY[@]}"; do
+  SPLITS_ARRAY[i]=$(echo "${SPLITS_ARRAY[i]}+5.5" | bc)
+done
+
+SPLITS=$(IFS=','; echo "${SPLITS_ARRAY[*]}")
+echo "SPLITS=$SPLITS"
 
 # using the split points list, calculate how many output audio files will be created 
 num=0
