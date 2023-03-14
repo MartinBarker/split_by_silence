@@ -9,9 +9,9 @@
 # output title format
 OUTPUTTITLE="%d_output.flac"
 # input audio filepath
-IN="/mnt/c/Users/marti/Documents/projects/split_by_silence2/full.flac"
+IN="/mnt/e/martinradio/rips/vinyl/L T D Gittin Down/full.flac"
 # output audio filepath
-OUTPUTFILEPATH="/mnt/c/Users/marti/Documents/projects/split_by_silence2/flac_output/"
+OUTPUTFILEPATH="/mnt/e/martinradio/rips/vinyl/L T D Gittin Down"
 # ffmpeg option: split input audio based on this silencedetect value
 SD_PARAMS="-11dB"
 # split option: minimum fragment duration
