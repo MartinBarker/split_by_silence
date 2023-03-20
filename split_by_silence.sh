@@ -9,13 +9,12 @@
 # output title format
 OUTPUTTITLE="%d_output.flac"
 # input audio filepath
-IN="/mnt/e/martinradio/rips/vinyl/L T D Gittin Down/full.flac"
+IN="/mnt/c/Users/marti/Documents/projects/split_by_silence2/full.flac"
 # output audio filepath
-OUTPUTFILEPATH="/mnt/e/martinradio/rips/vinyl/L T D Gittin Down"
+OUTPUTFILEPATH="/mnt/c/Users/marti/Documents/projects/split_by_silence2"
 # ffmpeg option: split input audio based on this silencedetect value
 SD_PARAMS="-11dB"
-# split option: minimum fragment duration
-MIN_FRAGMENT_DURATION=120
+MIN_FRAGMENT_DURATION=120 # split option: minimum fragment duration
 export MIN_FRAGMENT_DURATION
 
 # -----------------------
@@ -39,14 +38,26 @@ SPLITS=$(
     ' \
     | sed 's!,$!!'
 )
-echo "split points list= $SPLITS"
+#echo "split points list= $SPLITS"
 
-# add '5.5' to each split\
+# add '5.5' to each split (padding)
 IFS=',' read -ra SPLITS_ARRAY <<< "$SPLITS"
 for i in "${!SPLITS_ARRAY[@]}"; do
   SPLITS_ARRAY[i]=$(echo "${SPLITS_ARRAY[i]}+5.5" | bc)
 done
 
+SPLITS_DISPLAY=$SPLITS
+# add zero '0' to start o SPLITS_DISPLAY list
+SPLITS_DISPLAY="0,$SPLITS_DISPLAY"
+
+# get the full audio filelength for the input file $IN, and add that length (in seconds) to end of $SPLITS
+FILE_LENGTH=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$IN")
+
+# add file length to end of SPLITS
+SPLITS_DISPLAY="$SPLITS_DISPLAY,$FILE_LENGTH"
+echo "SPLITS_DISPLAY=$SPLITS_DISPLAY"
+
+# print out splits 
 SPLITS=$(IFS=','; echo "${SPLITS_ARRAY[*]}")
 echo "SPLITS=$SPLITS"
 

@@ -1,12 +1,13 @@
-Flac file download:
-https://www.filemail.com/d/afntznnksjgpjrr
+Instructions:
 
-Goal:
-Generate 11 split points, render 12 audio files using the included mp3.
+1) Get comma seperated string list of SPLIT points, add zero to start and total length to end
+`$ ./split_by_silence`
 
-https://www.discogs.com/release/1347350-LTD-Gittin-Down
+2) Convert list of split point times into a .cue file
+`$ ./readable_points_to_readable.sh`
 
-Call with command:
-```
-./split_by_silence
-```
+2) Use shntool to split the flac based on .cue input
+`$ shntool split -f times.cue -o flac full.flac`
+
+
+
