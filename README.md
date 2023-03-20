@@ -7,7 +7,8 @@ Instructions:
 `$ ./readable_points_to_readable.sh`
 
 2) Use shntool to split the flac based on .cue input
-`$ shntool split -f times.cue -o flac full.flac`
+`$ shntool split -f times.cue -O always -o flac -d "%a - %t" -v -e 24/96 full.flac`
+
 
 
 

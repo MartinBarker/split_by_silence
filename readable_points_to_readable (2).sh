@@ -39,18 +39,17 @@ do
     if [[ -n $NEXT_SPLIT ]]; then
         TRACK_LENGTH=$(echo "$NEXT_SPLIT - $CURRENT_SPLIT" | bc)
         
-    echo "CURRENT_SPLIT = $CURRENT_SPLIT"
-            # Convert split points to HH:MM:SS format
-            START_TIME=$(date -u -d "@$CURRENT_SPLIT" +%M:%S | sed 's/^0//')
-            echo "START_TIME = $START_TIME"
-            echo "----------------------------------------"
+        echo "CURRENT_SPLIT = $CURRENT_SPLIT"
+        # Convert split points to HH:MM:SS format
+        START_TIME=$(date -u -d "@$CURRENT_SPLIT" +%M:%S)
+        echo "START_TIME = $START_TIME"
+        echo "----------------------------------------"
 
-            # Print the track start, end, and length times
-            echo "  TRACK $(printf "%02d" $TRACK_NUM) AUDIO" >> "$CUE_FILENAME"
-            echo "    TITLE \"$(printf "%02d" $TRACK_NUM)\"" >> "$CUE_FILENAME"
-            echo "    PERFORMER \"$PERFORMER\"" >> "$CUE_FILENAME"
-            echo "    INDEX 01 $START_TIME" >> "$CUE_FILENAME"
-
+        # Print the track start, end, and length times
+        echo "  TRACK $(printf "%02d" $TRACK_NUM) AUDIO" >> "$CUE_FILENAME"
+        echo "    TITLE \"$(printf "%02d" $TRACK_NUM)\"" >> "$CUE_FILENAME"
+        echo "    PERFORMER \"$PERFORMER\"" >> "$CUE_FILENAME"
+        echo "    INDEX 01 $START_TIME" >> "$CUE_FILENAME"
         
 ###^^ fix above code so it is HH:MM format into .cue file
 

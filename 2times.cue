@@ -6,19 +6,19 @@ FILE "Faithless - Live in Berlin.mp3" MP3
   TRACK 01 AUDIO
     TITLE "01"
     PERFORMER "Faithless"
-    INDEX 01 0:00
+    INDEX 01 00:00
   TRACK 02 AUDIO
     TITLE "02"
     PERFORMER "Faithless"
-    INDEX 01 2:42
+    INDEX 01 02:42
   TRACK 03 AUDIO
     TITLE "03"
     PERFORMER "Faithless"
-    INDEX 01 6:20
+    INDEX 01 06:20
   TRACK 04 AUDIO
     TITLE "04"
     PERFORMER "Faithless"
-    INDEX 01 9:17
+    INDEX 01 09:17
   TRACK 05 AUDIO
     TITLE "05"
     PERFORMER "Faithless"
