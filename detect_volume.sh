@@ -34,7 +34,7 @@ do
   volume=$(ffmpeg -i "$input_file" -filter_complex "[0:a]atrim=start=$start:end=$end,volumedetect" -f null /dev/null 2>&1 | awk '/max_volume/ {print $5}')
 
   # Print the formatted output
-  echo "$i : $volume"
+  echo "$volume,"
 
   # Append to CSV file if -csv flag is passed
   if [ "$output_csv" = true ]; then
