@@ -47,3 +47,33 @@ Instructions:
 
 6. run script to get volume of every second from input.mp3 from zero to 1946 seconds and create csv of data
     ./detect_volume.sh input.mp3 1946 -csv
+
+
+
+#####
+
+1. get volume in db for every second of audio file, convert to list []
+
+2. get index of every value less then or equal to -20
+
+0   = 00:00 : -28.2
+1   = 00:01 : -21.4
+111 = 01:51 : -28
+113 = 01:53 : -29.8
+114 = 01:54 : -29.4
+115 = 01:55 : -20.7
+116 = 01:56 : -30.3
+117 = 01:57 : -29.4
+233 = 03:53 : -31.2
+234 = 03:54 : -31.5
+235 = 03:55 : -27.2
+236 = 03:56 : -31.3
+237 = 03:57 : -29.2
+238 = 03:58 : -23.2
+239 = 03:59 : -21.1
+240 = 04:00 : -21.2
+242 = 04:02 : -21.4
+244 = 04:04 : -22
+245 = 04:05 : -22.1
+246 = 04:06 : -21.2
+247 = 04:07 : -20.3
